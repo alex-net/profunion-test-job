@@ -1,0 +1,17 @@
+name: profunion-test-job
+
+services:
+  nginx:
+    image: nginx:alpine
+    volumes:
+      - .:/usr/share/nginx/html:ro
+    ports:
+      - 8077:80
+
+  node:
+    image: node:alpine
+    tty: true
+    volumes:
+      - .:/app
+    user: 1000:1000
+    working_dir: /app

@@ -1,0 +1,20 @@
+{
+    "info": {
+        "fio": "Фамилия имя отчество",
+        "date": "xx.xx.xxxx",
+        "tab": "Горки 0000",
+        "spec": "проходник 4 разряда"
+    },
+    "indicators": {
+        "instr": {"title": "Инструктаж", "val": 100, "max": 100, "ico": "instr.png", "color": "b2d53c"},
+        "exam": {"title": "Предсменный экзаменатор", "val": 100, "max": 100, "ico": "pred-exsamenator.png", "color": "b2d53c"},
+        "tests": {"title": "Тестов выполнено", "val": 12, "max": 50, "color": "b2d53c"},
+        "att": {"title": "Аттестация через", "val": 3, "max": 15, "prefix": "дня", "color": "ef7f1b"}
+    },
+    "actions": [
+        {"title": "Начать работу", "ico": "start-job.png"},
+        {"title": "Уведомления", "ico": "notify.png", "co": 2},
+        {"title": "Обучение", "ico": "learn.png"},
+        {"title": "Достижениея", "ico": "progress.png"}
+    ]
+}

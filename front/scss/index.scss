@@ -1,0 +1,73 @@
+$body-color: #566a8f;
+body {margin: 0; background: $body-color; font: 1em 'Open Sans';
+    .container {display: flex; overflow: hidden;
+        .user-panel {flex-basis: 30em; background: white; border-radius: 0 1em 1em 0; box-shadow: -0.5em 0 2em 0 black; padding: 1em; box-sizing: border-box; flex-shrink: 0;
+            a {text-decoration: none; color: $body-color;}
+            .data-exit {display: flex; justify-content: space-between; align-items: center;}
+            .theme-switcher {float: right; position: relative; width: 3em; cursor: pointer;
+                &::before {content: ''; width: 2em; background: $body-color; display: block; height: 0.5em; border-radius: 0.25em; margin: 1em 0.5em;}
+                .icon {position: absolute; right: 0; top: 1em;}
+            }
+            %panel-styles { background: $body-color; padding: 1em 1.5em 2.5em; border-radius: 0.15em; box-shadow: 1px 2px 5px black; font-size: 0.8em; font-weight: bold; box-sizing: border-box;}
+            .user-info {@extend %panel-styles; margin-top: 5em; color: white;
+                .fio {font-size: 1.2em; font-weight: bold;}
+                .date-bird {font-size: 1.3em;}
+                .tab-num, .sec {font-size: 0.8em;}
+            }
+            .info-panels {display: flex; flex-wrap: wrap; clear: both; justify-content: space-between; color: white;
+                div.indicator {flex-basis: 49%; @extend %panel-styles; margin-top: 0.5em;
+                    @media screen and (max-width: 350px) {
+                        flex-basis: 100%;
+                    }
+                    .title {height: 3em; display: flex; justify-content: center; align-items: center; text-align: center;}
+                    .ind-body {width: 4em; height: 4em;  padding: 2em; position: relative; display: flex; justify-content: center; align-items: center; margin: 1em auto;
+                        canvas.tablo {width: 100%; height: 100%;position: absolute; left: 0; top: 0;}
+                        &::before {content: ''; display: block; width: 100%; background: white; height: 100%; position: absolute; top: 0; left: 0; border-radius: 50%;}
+                        &::after {content: ''; display: block; width: 80%; height: 80%; background: $body-color; position: absolute; top: 10%; left: 10%; border-radius: 50%;}
+                        .content-wpapp {position: relative; z-index: 10; background-position: center; background-repeat: no-repeat; margin: 0 auto; text-align: center;
+                            img {max-width: 100%;}
+                            .big-dig {font-size: 3em; line-height: 1em;}
+                        }
+                    }
+                }
+            }
+            .collapser-btn {display: none; text-align: center; flex-basis: 100%;
+                span {cursor: pointer;}
+            }
+        }
+        &.dark .user-panel {background: #353d54; color: white;
+            a {color: white;}
+            .theme-switcher .icon {left: 0;}
+            .info-panels div.indicator .ind-body::before {background: #353d54;}
+        }
+
+        > .content {padding: 1em; flex-grow: 1;
+            .head {text-align: right; padding: 0.5em;
+                img {max-width: 100%;}
+            }
+            .actions {display: flex; justify-content: space-around; flex-wrap: wrap;
+                .action {background: #ef7f1b; text-align: center; color: white; margin: 1.5em 1em; padding: 1em; font-size: 1.2em; border-radius: 0.15em; box-shadow: 0 0 0.5em -0.1em black; position: relative; flex-basis: 15em; box-sizing: border-box; text-decoration: none;
+                    img {display: block; margin: 0.5em auto 0; width: 5em;}
+                    .notif-bobl {position: absolute; top: -0.75em; right: -0.75em; width: 1.5em; height: 1.5em; background: #acd91b; border-radius: 50%; text-align: center; color: black; box-shadow: 0 0 0.2em -0.05em; }
+                }
+            }
+        }
+
+        @media screen and (max-width: 850px) {
+            .user-panel, .content {flex-basis: 50%;}
+            @media (max-width: 700px) {
+                flex-direction: column;
+                .user-panel {border-radius: 0 0 1em 1em;
+                    .collapser-btn {display: block;margin-top: 0.8em;}
+                }
+                .content .head {text-align: center;}
+            }
+
+            // @media (max-width: 560px) {
+            //     > .user-panel {flex-basis: 17.5em;}
+            // }
+            // > .content {flex-basis: 70%;}
+
+        }
+    }
+}
